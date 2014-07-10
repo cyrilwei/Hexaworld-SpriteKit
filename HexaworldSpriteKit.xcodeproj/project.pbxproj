@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F1B3C3681969513B00366758 /* HexaworldSpriteKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3671969513B00366758 /* HexaworldSpriteKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C36E1969513B00366758 /* HexaworldSpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C3621969513B00366758 /* HexaworldSpriteKit.framework */; };
+		F1C8E7C9196D502E00DF400A /* HexaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C8E7C8196D502E00DF400A /* HexaScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F1B3C36D1969513B00366758 /* HexaworldSpriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexaworldSpriteKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C3731969513B00366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HexaworldCore.xcodeproj; path = ../Core/HexaworldCore.xcodeproj; sourceTree = "<group>"; };
+		F1C8E7C8196D502E00DF400A /* HexaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				F1B3C3671969513B00366758 /* HexaworldSpriteKit.h */,
 				F1B3C3651969513B00366758 /* Supporting Files */,
+				F1C8E7C8196D502E00DF400A /* HexaScene.swift */,
 			);
 			path = HexaworldSpriteKit;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C8E7C9196D502E00DF400A /* HexaScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +381,7 @@
 		F1B3C3791969513B00366758 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -386,12 +391,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F1B3C37A1969513B00366758 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
