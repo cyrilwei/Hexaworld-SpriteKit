@@ -18,19 +18,24 @@ class HexaScene: SKScene {
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
-        world = Hexaworld(columns: columns, rows: rows)
+        world = Hexaworld(layout: HexaLayout.createLayout(columns, rows: rows))
         
         cellSize = CGFloat(min(Int(self.size.width) / columns, Int(self.size.height) / rows))
         
+        let radius = cellSize / 2
+        
+        let xOffset = (1 + sin(M_PI / 6)) * radius
+        let yOffset = 2 * cos(M_PI / 6) * radius
+        
         for cell in world.cells {
             if let realCell = cell? {
-                let node = SKShapeNode(rectOfSize: CGSizeMake(CGFloat(cellSize) / 1.5, CGFloat(cellSize) / 1.5), cornerRadius: 10.0)
+                let node = HexaNode(cell: realCell, size: cellSize)
                 
-                var x = CGFloat(realCell.column) * cellSize + cellSize * 0.5
-                var y = CGFloat(realCell.row) * cellSize + 100
+                var x = CGFloat(realCell.column) * xOffset + cellSize
+                var y = CGFloat(realCell.row) * yOffset + 100
                 
                 if realCell.column % 2 == 1 {
-                    y -= cellSize * 0.5
+                    y -= yOffset * 0.5
                 }
                 
                 node.position = CGPointMake(x, y)
