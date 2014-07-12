@@ -10,32 +10,36 @@ import UIKit
 import SpriteKit
 import HexaworldCore
 
+let M_2_COS_PI_6 = 2 * cos(M_PI / 6)
+
 class HexaScene: SKScene {
     var world: Hexaworld!
     
-    var cellSize: CGFloat!
+    var radius: CGFloat!
     
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
         world = Hexaworld(layout: HexaLayout.createLayout(columns, rows: rows))
         
-        cellSize = CGFloat(min(Int(self.size.width) / columns, Int(self.size.height) / rows))
+        let xRadiusCount = CGFloat(columns) * 1.5 + 0.5
+        let yRadiusCount = CGFloat(rows + 1) / M_2_COS_PI_6
         
-        let radius = cellSize / 2
+        radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
         
-        let xOffset = (1 + sin(M_PI / 6)) * radius
-        let yOffset = 2 * cos(M_PI / 6) * radius
-        
+        let xOffset = 1.5 * radius
+        let yOffset = M_2_COS_PI_6 * radius
+        let halfYOffset = yOffset / 2
+
         for cell in world.cells {
             if let realCell = cell? {
-                let node = HexaNode(cell: realCell, size: cellSize)
+                let node = HexaNode(cell: realCell, radius: radius)
                 
-                var x = CGFloat(realCell.column) * xOffset + cellSize
-                var y = CGFloat(realCell.row) * yOffset + 100
+                var x = CGFloat(realCell.column) * xOffset + radius
+                var y = CGFloat(realCell.row + 1) * yOffset
                 
                 if realCell.column % 2 == 1 {
-                    y -= yOffset * 0.5
+                    y -= halfYOffset
                 }
                 
                 node.position = CGPointMake(x, y)

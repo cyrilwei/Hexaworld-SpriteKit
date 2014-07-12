@@ -14,9 +14,9 @@ class HexaNode: SKShapeNode {
     var cell: HexaworldCell!
     var radius: CGFloat
     
-    init(cell: HexaworldCell, size: CGFloat) {
+    init(cell: HexaworldCell, radius: CGFloat) {
         self.cell = cell
-        self.radius = size / 2
+        self.radius = radius
         
         super.init()
         
