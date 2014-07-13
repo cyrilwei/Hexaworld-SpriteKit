@@ -31,7 +31,11 @@ class HexaNode: SKShapeNode {
 //        CGPathAddLineToPoint(p, nil, xOffset, -yOffset)
 //        CGPathAddLineToPoint(p, nil, xOffset, yOffset)
 //        CGPathCloseSubpath(p)
-
+        
+        addPath()
+    }
+    
+    func addPath() {
         let xOffset = sin(M_PI / 6) * radius
         let yOffset = cos(M_PI / 6) * radius
         
@@ -43,7 +47,7 @@ class HexaNode: SKShapeNode {
         CGPathAddLineToPoint(p, nil, radius, 0)
         CGPathAddLineToPoint(p, nil, xOffset, yOffset)
         CGPathCloseSubpath(p)
-
+        
         path = p
     }
 }

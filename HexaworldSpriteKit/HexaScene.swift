@@ -20,7 +20,7 @@ class HexaScene: SKScene {
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
-        world = Hexaworld(layout: HexaLayout.createLayout(columns, rows: rows))
+        world = Hexaworld(layout: HexaLayout.createLandscapeLayout(columns, rows: rows))
         
         let xRadiusCount = CGFloat(columns) * 1.5 + 0.5
         let yRadiusCount = CGFloat(rows + 1) / M_2_COS_PI_6
