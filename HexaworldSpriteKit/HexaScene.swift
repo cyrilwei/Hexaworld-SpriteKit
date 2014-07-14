@@ -20,17 +20,25 @@ class HexaScene: SKScene {
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
-        world = Hexaworld(layout: HexaLayout.createLandscapeLayout(columns, rows: rows))
+        createWorld(columns, rows: rows)
         
         let xRadiusCount = CGFloat(columns) * 1.5 + 0.5
         let yRadiusCount = CGFloat(rows + 1) / M_2_COS_PI_6
         
         radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
-        
+
+        fillNodes()
+    }
+    
+    func createWorld(columns: Int, rows: Int) {
+        world = Hexaworld(layout: HexaLayout.createLandscapeLayout(columns, rows: rows))
+    }
+    
+    func fillNodes() {
         let xOffset = 1.5 * radius
         let yOffset = M_2_COS_PI_6 * radius
         let halfYOffset = yOffset / 2
-
+        
         for cell in world.cells {
             if let realCell = cell? {
                 let node = HexaNode(cell: realCell, radius: radius)
