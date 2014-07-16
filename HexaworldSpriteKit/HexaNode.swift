@@ -9,18 +9,18 @@
 import Foundation
 import SpriteKit
 
-class HexaNode: SKShapeNode {
-    var column: Int
-    var row: Int
-    var radius: CGFloat
+class HexaNode: SKSpriteNode {
+    var column: Int!
+    var row: Int!
+    var radius: CGFloat!
     
-    init(column: Int, row: Int, radius: CGFloat) {
-        self.column = column
-        self.row = row
-        self.radius = radius
-        
-        super.init()
-        
+//    init(column: Int, row: Int, radius: CGFloat) {
+//        self.column = column
+//        self.row = row
+//        self.radius = radius
+//
+//        super.init()
+
 //        let xOffset = cos(M_PI / 6) * radius
 //        let yOffset = sin(M_PI / 6) * radius
 //        
@@ -33,22 +33,22 @@ class HexaNode: SKShapeNode {
 //        CGPathAddLineToPoint(p, nil, xOffset, yOffset)
 //        CGPathCloseSubpath(p)
         
-        addPath()
-    }
+//        addPath()
+//    }
     
-    func addPath() {
-        let xOffset = sin(M_PI / 6) * radius
-        let yOffset = cos(M_PI / 6) * radius
-        
-        let p = CGPathCreateMutable()
-        CGPathMoveToPoint(p, nil, -xOffset, yOffset)
-        CGPathAddLineToPoint(p, nil, -radius, 0)
-        CGPathAddLineToPoint(p, nil, -xOffset, -yOffset)
-        CGPathAddLineToPoint(p, nil, xOffset, -yOffset)
-        CGPathAddLineToPoint(p, nil, radius, 0)
-        CGPathAddLineToPoint(p, nil, xOffset, yOffset)
-        CGPathCloseSubpath(p)
-        
-        path = p
-    }
+//    func addPath() {
+//        let xOffset = sin(M_PI / 6) * radius
+//        let yOffset = cos(M_PI / 6) * radius
+//        
+//        let p = CGPathCreateMutable()
+//        CGPathMoveToPoint(p, nil, -xOffset, yOffset)
+//        CGPathAddLineToPoint(p, nil, -radius, 0)
+//        CGPathAddLineToPoint(p, nil, -xOffset, -yOffset)
+//        CGPathAddLineToPoint(p, nil, xOffset, -yOffset)
+//        CGPathAddLineToPoint(p, nil, radius, 0)
+//        CGPathAddLineToPoint(p, nil, xOffset, yOffset)
+//        CGPathCloseSubpath(p)
+//        
+//        path = p
+//    }
 }

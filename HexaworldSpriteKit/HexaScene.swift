@@ -45,16 +45,16 @@ class HexaScene: SKScene {
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
-        createLayers()
-
-        createWorld(columns, rows: rows)
-        
         let xRadiusCount = CGFloat(columns) * 1.5 + 0.5
         let yRadiusCount = CGFloat(rows + 1) / M_2_COS_PI_6
         
         radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
 
-        fillNodes()
+        createLayers()
+
+        createWorld(columns, rows: rows)
+        
+//        fillNodes()
     }
     
     func createLayers() {
@@ -75,26 +75,26 @@ class HexaScene: SKScene {
         world = Hexaworld(layout: HexaLayout.createLandscapeLayout(columns, rows: rows))
     }
     
-    func fillNodes() {
-        let xOffset = 1.5 * radius
-        let yOffset = M_2_COS_PI_6 * radius
-        let halfYOffset = yOffset / 2
-        
-        for cell in world.cells {
-            if let realCell = cell? {
-                let node = HexaNode(column: realCell.column, row: realCell.row, radius: radius)
-                
-                var x = CGFloat(realCell.column) * xOffset + radius
-                var y = CGFloat(realCell.row + 1) * yOffset
-                
-                if realCell.column % 2 == 1 {
-                    y -= halfYOffset
-                }
-                
-                node.position = CGPointMake(x, y)
-                
-                addChild(node)
-            }
-        }
-    }
+//    func fillNodes() {
+//        let xOffset = 1.5 * radius
+//        let yOffset = M_2_COS_PI_6 * radius
+//        let halfYOffset = yOffset / 2
+//        
+//        for cell in world.cells {
+//            if let realCell = cell? {
+//                let node = HexaNode(column: realCell.column, row: realCell.row, radius: radius)
+//                
+//                var x = CGFloat(realCell.column) * xOffset + radius
+//                var y = CGFloat(realCell.row + 1) * yOffset
+//                
+//                if realCell.column % 2 == 1 {
+//                    y -= halfYOffset
+//                }
+//                
+//                node.position = CGPointMake(x, y)
+//                
+//                addChild(node)
+//            }
+//        }
+//    }
 }
