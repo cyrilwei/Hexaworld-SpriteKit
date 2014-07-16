@@ -7,15 +7,16 @@
 //
 
 import Foundation
-import HexaworldCore
 import SpriteKit
 
 class HexaNode: SKShapeNode {
-    var cell: HexaworldCell!
+    var column: Int
+    var row: Int
     var radius: CGFloat
     
-    init(cell: HexaworldCell, radius: CGFloat) {
-        self.cell = cell
+    init(column: Int, row: Int, radius: CGFloat) {
+        self.column = column
+        self.row = row
         self.radius = radius
         
         super.init()

@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import HexaworldCore
 
-let M_2_COS_PI_6 = 2 * cos(M_PI / 6)
+let M_2_COS_PI_6 = 2.0 * cos(M_PI / 6)
 
 enum HexaLayer: CGFloat {
     case StaticBackgroundLayer = -100
@@ -45,6 +45,8 @@ class HexaScene: SKScene {
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
+        createLayers()
+
         createWorld(columns, rows: rows)
         
         let xRadiusCount = CGFloat(columns) * 1.5 + 0.5
@@ -53,11 +55,9 @@ class HexaScene: SKScene {
         radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
 
         fillNodes()
-
-        addLayers()
     }
     
-    func addLayers() {
+    func createLayers() {
         staticBackgroundLayer.zPosition = HexaLayer.StaticBackgroundLayer.toRaw()
         dynamicBackgroundLayer.zPosition = HexaLayer.DynamicBackgroundLayer.toRaw()
         spriteLayer.zPosition = HexaLayer.SpriteLayer.toRaw()
@@ -82,7 +82,7 @@ class HexaScene: SKScene {
         
         for cell in world.cells {
             if let realCell = cell? {
-                let node = HexaNode(cell: realCell, radius: radius)
+                let node = HexaNode(column: realCell.column, row: realCell.row, radius: radius)
                 
                 var x = CGFloat(realCell.column) * xOffset + radius
                 var y = CGFloat(realCell.row + 1) * yOffset
