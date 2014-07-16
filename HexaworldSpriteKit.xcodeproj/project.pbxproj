@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10235001976B86600692FA4 /* HexaLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10234FF1976B86600692FA4 /* HexaLayer.swift */; };
 		F172D75C196FFD9A00D25ED4 /* HexaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172D75B196FFD9A00D25ED4 /* HexaNode.swift */; };
 		F1B3C3681969513B00366758 /* HexaworldSpriteKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3671969513B00366758 /* HexaworldSpriteKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C36E1969513B00366758 /* HexaworldSpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C3621969513B00366758 /* HexaworldSpriteKit.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F10234FF1976B86600692FA4 /* HexaLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaLayer.swift; sourceTree = "<group>"; };
 		F172D75B196FFD9A00D25ED4 /* HexaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaNode.swift; sourceTree = "<group>"; };
 		F1B3C3621969513B00366758 /* HexaworldSpriteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HexaworldSpriteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C3661969513B00366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				F1B3C3651969513B00366758 /* Supporting Files */,
 				F1C8E7C8196D502E00DF400A /* HexaScene.swift */,
 				F172D75B196FFD9A00D25ED4 /* HexaNode.swift */,
+				F10234FF1976B86600692FA4 /* HexaLayer.swift */,
 			);
 			path = HexaworldSpriteKit;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C8E7C9196D502E00DF400A /* HexaScene.swift in Sources */,
+				F10235001976B86600692FA4 /* HexaLayer.swift in Sources */,
 				F172D75C196FFD9A00D25ED4 /* HexaNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Cyril Wei. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class HexaNode: SKSpriteNode {

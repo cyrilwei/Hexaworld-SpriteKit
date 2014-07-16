@@ -12,14 +12,6 @@ import HexaworldCore
 
 let M_2_COS_PI_6 = 2.0 * cos(M_PI / 6)
 
-enum HexaLayer: CGFloat {
-    case StaticBackgroundLayer = -100
-    case DynamicBackgroundLayer = -10
-    case SpriteLayer = 0
-    case HUDLayer = 10
-    case DebugLayer = 100
-}
-
 //extension SKNode {
 //    var layer: HexaLayer {
 //        get {
@@ -36,11 +28,11 @@ class HexaScene: SKScene {
     
     var radius: CGFloat!
     
-    let staticBackgroundLayer = SKNode()
-    let dynamicBackgroundLayer = SKNode()
-    let spriteLayer = SKNode()
-    let HUDLayer = SKNode()
-    let debugLayer = SKNode()
+    let staticBackgroundLayer = HexaLayer()
+    let dynamicBackgroundLayer = HexaLayer()
+    let spriteLayer = HexaLayer()
+    let HUDLayer = HexaLayer()
+    let debugLayer = HexaLayer()
     
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
@@ -58,11 +50,11 @@ class HexaScene: SKScene {
     }
     
     func createLayers() {
-        staticBackgroundLayer.zPosition = HexaLayer.StaticBackgroundLayer.toRaw()
-        dynamicBackgroundLayer.zPosition = HexaLayer.DynamicBackgroundLayer.toRaw()
-        spriteLayer.zPosition = HexaLayer.SpriteLayer.toRaw()
-        HUDLayer.zPosition = HexaLayer.HUDLayer.toRaw()
-        debugLayer.zPosition = HexaLayer.DebugLayer.toRaw()
+        staticBackgroundLayer.zPosition = HexaLayerType.StaticBackgroundLayer.toRaw()
+        dynamicBackgroundLayer.zPosition = HexaLayerType.DynamicBackgroundLayer.toRaw()
+        spriteLayer.zPosition = HexaLayerType.SpriteLayer.toRaw()
+        HUDLayer.zPosition = HexaLayerType.HUDLayer.toRaw()
+        debugLayer.zPosition = HexaLayerType.DebugLayer.toRaw()
         
         addChild(staticBackgroundLayer)
         addChild(dynamicBackgroundLayer)
