@@ -13,6 +13,26 @@ class HexaNode: SKSpriteNode {
     var row: Int!
     var radius: CGFloat!
     
+    var path: CGPath!
+    
+    override func containsPoint(p: CGPoint) -> Bool {
+        let xOffset = sin(M_PI / 6) * radius
+        let yOffset = cos(M_PI / 6) * radius
+
+        let pa = CGPathCreateMutable()
+        CGPathMoveToPoint(pa, nil, -xOffset, yOffset)
+        CGPathAddLineToPoint(pa, nil, -radius, 0)
+        CGPathAddLineToPoint(pa, nil, -xOffset, -yOffset)
+        CGPathAddLineToPoint(pa, nil, xOffset, -yOffset)
+        CGPathAddLineToPoint(pa, nil, radius, 0)
+        CGPathAddLineToPoint(pa, nil, xOffset, yOffset)
+        CGPathCloseSubpath(pa)
+        
+        path = pa
+
+        return CGPathContainsPoint(path, nil, self.convertPoint(p, fromNode: self.scene), true)
+    }
+    
 //    init(column: Int, row: Int, radius: CGFloat) {
 //        self.column = column
 //        self.row = row
@@ -32,22 +52,6 @@ class HexaNode: SKSpriteNode {
 //        CGPathAddLineToPoint(p, nil, xOffset, yOffset)
 //        CGPathCloseSubpath(p)
         
-//        addPath()
 //    }
     
-//    func addPath() {
-//        let xOffset = sin(M_PI / 6) * radius
-//        let yOffset = cos(M_PI / 6) * radius
-//        
-//        let p = CGPathCreateMutable()
-//        CGPathMoveToPoint(p, nil, -xOffset, yOffset)
-//        CGPathAddLineToPoint(p, nil, -radius, 0)
-//        CGPathAddLineToPoint(p, nil, -xOffset, -yOffset)
-//        CGPathAddLineToPoint(p, nil, xOffset, -yOffset)
-//        CGPathAddLineToPoint(p, nil, radius, 0)
-//        CGPathAddLineToPoint(p, nil, xOffset, yOffset)
-//        CGPathCloseSubpath(p)
-//        
-//        path = p
-//    }
 }
