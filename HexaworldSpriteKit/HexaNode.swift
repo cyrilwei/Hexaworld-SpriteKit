@@ -11,26 +11,38 @@ import SpriteKit
 class HexaNode: SKSpriteNode {
     var column: Int!
     var row: Int!
-    var radius: CGFloat!
+    var _radius: CGFloat!
+    var radius: CGFloat! {
+        get {
+            return _radius
+        }
+        set {
+            _radius = newValue
+            createHexaPath()
+        }
+    }
     
-    var path: CGPath!
+    var hexaPath: CGPath!
     
-    override func containsPoint(p: CGPoint) -> Bool {
-        let xOffset = sin(M_PI / 6) * radius
-        let yOffset = cos(M_PI / 6) * radius
-
+    func createHexaPath() {
+        let xOffset = sin(M_PI / 6) * _radius
+        let yOffset = cos(M_PI / 6) * _radius
+        
         let pa = CGPathCreateMutable()
         CGPathMoveToPoint(pa, nil, -xOffset, yOffset)
-        CGPathAddLineToPoint(pa, nil, -radius, 0)
+        CGPathAddLineToPoint(pa, nil, -_radius, 0)
         CGPathAddLineToPoint(pa, nil, -xOffset, -yOffset)
         CGPathAddLineToPoint(pa, nil, xOffset, -yOffset)
-        CGPathAddLineToPoint(pa, nil, radius, 0)
+        CGPathAddLineToPoint(pa, nil, _radius, 0)
         CGPathAddLineToPoint(pa, nil, xOffset, yOffset)
         CGPathCloseSubpath(pa)
         
-        path = pa
+        hexaPath = pa
+    }
+    
+    override func containsPoint(p: CGPoint) -> Bool {
 
-        return CGPathContainsPoint(path, nil, self.convertPoint(p, fromNode: self.scene), true)
+        return CGPathContainsPoint(hexaPath, nil, self.convertPoint(p, fromNode: self.scene), true)
     }
     
 //    init(column: Int, row: Int, radius: CGFloat) {
