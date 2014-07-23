@@ -11,13 +11,8 @@ import SpriteKit
 class HexaNode: SKSpriteNode {
     var column: Int!
     var row: Int!
-    var _radius: CGFloat!
     var radius: CGFloat! {
-        get {
-            return _radius
-        }
-        set {
-            _radius = newValue
+        didSet {
             createHexaPath()
         }
     }
@@ -25,15 +20,15 @@ class HexaNode: SKSpriteNode {
     var hexaPath: CGPath!
     
     func createHexaPath() {
-        let xOffset = sin(M_PI / 6) * _radius
-        let yOffset = cos(M_PI / 6) * _radius
+        let xOffset = sin(M_PI / 6) * radius
+        let yOffset = cos(M_PI / 6) * radius
         
         let pa = CGPathCreateMutable()
         CGPathMoveToPoint(pa, nil, -xOffset, yOffset)
-        CGPathAddLineToPoint(pa, nil, -_radius, 0)
+        CGPathAddLineToPoint(pa, nil, -radius, 0)
         CGPathAddLineToPoint(pa, nil, -xOffset, -yOffset)
         CGPathAddLineToPoint(pa, nil, xOffset, -yOffset)
-        CGPathAddLineToPoint(pa, nil, _radius, 0)
+        CGPathAddLineToPoint(pa, nil, radius, 0)
         CGPathAddLineToPoint(pa, nil, xOffset, yOffset)
         CGPathCloseSubpath(pa)
         
