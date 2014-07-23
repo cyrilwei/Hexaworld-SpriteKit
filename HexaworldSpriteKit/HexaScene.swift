@@ -10,8 +10,6 @@ import UIKit
 import SpriteKit
 import HexaworldCore
 
-let M_2_COS_PI_6 = 2.0 * cos(M_PI / 6)
-
 //extension SKNode {
 //    var layer: HexaLayer {
 //        get {
@@ -37,16 +35,14 @@ class HexaScene: SKScene {
     init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
-        let xRadiusCount = CGFloat(columns) * 1.5 + 0.5
-        let yRadiusCount = CGFloat(rows + 1) / M_2_COS_PI_6
-        
-        radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
+        createWorld(columns, rows: rows)
 
         createLayers()
 
-        createWorld(columns, rows: rows)
+        let xRadiusCount = CGFloat(columns) * world.xFactor + 0.5
+        let yRadiusCount = CGFloat(rows + 1) / world.yFactor
         
-//        fillNodes()
+        radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
     }
     
     func createLayers() {
@@ -64,29 +60,6 @@ class HexaScene: SKScene {
     }
     
     func createWorld(columns: Int, rows: Int) {
-        world = Hexaworld(layout: HexaLayout.createLandscapeLayout(columns, rows: rows))
+        world = Hexaworld(layout: HexaLayout.createRectLandscapeLayout(columns, rows: rows))
     }
-    
-//    func fillNodes() {
-//        let xOffset = 1.5 * radius
-//        let yOffset = M_2_COS_PI_6 * radius
-//        let halfYOffset = yOffset / 2
-//        
-//        for cell in world.cells {
-//            if let realCell = cell? {
-//                let node = HexaNode(column: realCell.column, row: realCell.row, radius: radius)
-//                
-//                var x = CGFloat(realCell.column) * xOffset + radius
-//                var y = CGFloat(realCell.row + 1) * yOffset
-//                
-//                if realCell.column % 2 == 1 {
-//                    y -= halfYOffset
-//                }
-//                
-//                node.position = CGPointMake(x, y)
-//                
-//                addChild(node)
-//            }
-//        }
-//    }
 }
