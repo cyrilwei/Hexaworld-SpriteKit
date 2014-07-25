@@ -21,18 +21,18 @@ import HexaworldCore
 //    }
 //}
 
-class HexaScene: SKScene {
-    var world: Hexaworld!
+public class HexaScene: SKScene {
+    public var world: Hexaworld!
     
-    var radius: CGFloat!
+    public var radius: CGFloat!
     
-    let staticBackgroundLayer = HexaLayer()
-    let dynamicBackgroundLayer = HexaLayer()
-    let spriteLayer = HexaLayer()
-    let HUDLayer = HexaLayer()
-    let debugLayer = HexaLayer()
+    public let staticBackgroundLayer = HexaLayer()
+    public let dynamicBackgroundLayer = HexaLayer()
+    public let spriteLayer = HexaLayer()
+    public let HUDLayer = HexaLayer()
+    public let debugLayer = HexaLayer()
     
-    init(size: CGSize, columns: Int, rows: Int) {
+    public init(size: CGSize, columns: Int, rows: Int) {
         super.init(size: size)
 
         createWorld(columns, rows: rows)
@@ -59,7 +59,7 @@ class HexaScene: SKScene {
         addChild(debugLayer)
     }
     
-    func createWorld(columns: Int, rows: Int) {
+    public func createWorld(columns: Int, rows: Int) {
         world = Hexaworld(layout: HexaLayout.createRectLandscapeLayout(columns, rows: rows))
     }
 }

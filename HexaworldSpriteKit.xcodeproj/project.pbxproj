@@ -15,6 +15,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F1371364198291CA00ED03AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F1B3C33B1969503100366758;
+			remoteInfo = HexaworldCore;
+		};
 		F1B3C36F1969513B00366758 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1B3C3591969513B00366758 /* Project object */;
@@ -35,13 +42,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = F1B3C3471969503100366758;
 			remoteInfo = HexaworldCoreTests;
-		};
-		F1B3C3AD196955EA00366758 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F1B3C33B1969503100366758;
-			remoteInfo = HexaworldCore;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -166,7 +166,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F1B3C3AE196955EA00366758 /* PBXTargetDependency */,
+				F1371365198291CA00ED03AF /* PBXTargetDependency */,
 			);
 			name = HexaworldSpriteKit;
 			productName = HexaworldSpriteKit;
@@ -288,15 +288,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F1371365198291CA00ED03AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HexaworldCore;
+			targetProxy = F1371364198291CA00ED03AF /* PBXContainerItemProxy */;
+		};
 		F1B3C3701969513B00366758 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F1B3C3611969513B00366758 /* HexaworldSpriteKit */;
 			targetProxy = F1B3C36F1969513B00366758 /* PBXContainerItemProxy */;
-		};
-		F1B3C3AE196955EA00366758 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HexaworldCore;
-			targetProxy = F1B3C3AD196955EA00366758 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

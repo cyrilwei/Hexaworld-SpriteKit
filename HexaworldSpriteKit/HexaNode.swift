@@ -8,20 +8,20 @@
 
 import SpriteKit
 
-class HexaNode: SKSpriteNode {
-    var column: Int!
-    var row: Int!
-    var radius: CGFloat! {
+public class HexaNode: SKSpriteNode {
+    public var column: Int!
+    public var row: Int!
+    public var radius: CGFloat! {
         didSet {
             createHexaPath()
         }
     }
     
     var hexaPath: CGPath!
-    
+        
     func createHexaPath() {
-        let xOffset = sin(M_PI / 6) * radius
-        let yOffset = cos(M_PI / 6) * radius
+        let xOffset = CGFloat(sin(M_PI / 6)) * radius
+        let yOffset = CGFloat(cos(M_PI / 6)) * radius
         
         let pa = CGPathCreateMutable()
         CGPathMoveToPoint(pa, nil, -xOffset, yOffset)
@@ -35,7 +35,7 @@ class HexaNode: SKSpriteNode {
         hexaPath = pa
     }
     
-    override func containsPoint(p: CGPoint) -> Bool {
+    override public func containsPoint(p: CGPoint) -> Bool {
 
         return CGPathContainsPoint(hexaPath, nil, self.convertPoint(p, fromNode: self.scene), true)
     }

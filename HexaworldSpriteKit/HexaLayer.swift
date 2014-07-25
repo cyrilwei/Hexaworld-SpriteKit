@@ -18,7 +18,7 @@ enum HexaLayerType: CGFloat {
     case DebugLayer = 100
 }
 
-class HexaLayer: SKNode {
+public class HexaLayer: SKNode {
     func convertCellPoint(point: CGPoint) -> (column: Int, row: Int) {
         let node = self.nodeAtPoint(point)
         
@@ -31,7 +31,7 @@ class HexaLayer: SKNode {
 }
 
 extension UITouch {
-    func locationInLayer(layer: HexaLayer!) -> (column: Int, row: Int) {
+    public func locationInLayer(layer: HexaLayer!) -> (column: Int, row: Int) {
         let location = self.locationInNode(layer)
         
         return layer.convertCellPoint(location)
