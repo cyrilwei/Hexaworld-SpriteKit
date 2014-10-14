@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F10235001976B86600692FA4 /* HexaLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10234FF1976B86600692FA4 /* HexaLayer.swift */; };
+		F1371436198381EA00ED03AF /* HexaworldCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1371435198381EA00ED03AF /* HexaworldCore.framework */; };
 		F172D75C196FFD9A00D25ED4 /* HexaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172D75B196FFD9A00D25ED4 /* HexaNode.swift */; };
 		F1B3C3681969513B00366758 /* HexaworldSpriteKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3671969513B00366758 /* HexaworldSpriteKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C36E1969513B00366758 /* HexaworldSpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C3621969513B00366758 /* HexaworldSpriteKit.framework */; };
@@ -15,13 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F1371364198291CA00ED03AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F1B3C33B1969503100366758;
-			remoteInfo = HexaworldCore;
-		};
 		F1B3C36F1969513B00366758 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1B3C3591969513B00366758 /* Project object */;
@@ -29,31 +23,17 @@
 			remoteGlobalIDString = F1B3C3611969513B00366758;
 			remoteInfo = HexaworldSpriteKit;
 		};
-		F1B3C3A9196955DF00366758 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F1B3C33C1969503100366758;
-			remoteInfo = HexaworldCore;
-		};
-		F1B3C3AB196955DF00366758 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F1B3C3471969503100366758;
-			remoteInfo = HexaworldCoreTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F10234FF1976B86600692FA4 /* HexaLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaLayer.swift; sourceTree = "<group>"; };
+		F1371435198381EA00ED03AF /* HexaworldCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexaworldCore.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Hexagems-cmepuilbfycpafcuigreasdyfzfb/Build/Products/Debug-iphoneos/HexaworldCore.framework"; sourceTree = "<group>"; };
 		F172D75B196FFD9A00D25ED4 /* HexaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaNode.swift; sourceTree = "<group>"; };
 		F1B3C3621969513B00366758 /* HexaworldSpriteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HexaworldSpriteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C3661969513B00366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B3C3671969513B00366758 /* HexaworldSpriteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexaworldSpriteKit.h; sourceTree = "<group>"; };
 		F1B3C36D1969513B00366758 /* HexaworldSpriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexaworldSpriteKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C3731969513B00366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HexaworldCore.xcodeproj; path = ../Core/HexaworldCore.xcodeproj; sourceTree = "<group>"; };
 		F1C8E7C8196D502E00DF400A /* HexaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1371436198381EA00ED03AF /* HexaworldCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +60,7 @@
 		F1B3C3581969513B00366758 = {
 			isa = PBXGroup;
 			children = (
-				F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */,
+				F1371435198381EA00ED03AF /* HexaworldCore.framework */,
 				F1B3C3641969513B00366758 /* HexaworldSpriteKit */,
 				F1B3C3711969513B00366758 /* HexaworldSpriteKitTests */,
 				F1B3C3631969513B00366758 /* Products */,
@@ -131,15 +112,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F1B3C3A5196955DF00366758 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F1B3C3AA196955DF00366758 /* HexaworldCore.framework */,
-				F1B3C3AC196955DF00366758 /* HexaworldCoreTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -166,7 +138,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F1371365198291CA00ED03AF /* PBXTargetDependency */,
 			);
 			name = HexaworldSpriteKit;
 			productName = HexaworldSpriteKit;
@@ -219,12 +190,6 @@
 			mainGroup = F1B3C3581969513B00366758;
 			productRefGroup = F1B3C3631969513B00366758 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F1B3C3A5196955DF00366758 /* Products */;
-					ProjectRef = F1B3C3A4196955DF00366758 /* HexaworldCore.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				F1B3C3611969513B00366758 /* HexaworldSpriteKit */,
@@ -232,23 +197,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		F1B3C3AA196955DF00366758 /* HexaworldCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = HexaworldCore.framework;
-			remoteRef = F1B3C3A9196955DF00366758 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F1B3C3AC196955DF00366758 /* HexaworldCoreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = HexaworldCoreTests.xctest;
-			remoteRef = F1B3C3AB196955DF00366758 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F1B3C3601969513B00366758 /* Resources */ = {
@@ -288,11 +236,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F1371365198291CA00ED03AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HexaworldCore;
-			targetProxy = F1371364198291CA00ED03AF /* PBXContainerItemProxy */;
-		};
 		F1B3C3701969513B00366758 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F1B3C3611969513B00366758 /* HexaworldSpriteKit */;
@@ -394,6 +337,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Hexagems-cmepuilbfycpafcuigreasdyfzfb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = HexaworldSpriteKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -411,6 +358,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Hexagems-cmepuilbfycpafcuigreasdyfzfb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = HexaworldSpriteKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -6,51 +6,41 @@
 //  Copyright (c) 2014 Cyril Wei. All rights reserved.
 //
 
-import UIKit
 import SpriteKit
-import HexaworldCore
-
-//extension SKNode {
-//    var layer: HexaLayer {
-//        get {
-//            return HexaLayer.fromRaw(self.zPosition)!
-//        }
-//        set {
-//            self.zPosition = newValue.toRaw()
-//        }
-//    }
-//}
 
 public class HexaScene: SKScene {
-    public var world: Hexaworld!
-    
-    public var radius: CGFloat!
-    
     public let staticBackgroundLayer = HexaLayer()
     public let dynamicBackgroundLayer = HexaLayer()
     public let spriteLayer = HexaLayer()
     public let HUDLayer = HexaLayer()
     public let debugLayer = HexaLayer()
     
-    public init(size: CGSize, columns: Int, rows: Int) {
+    public var backgroundMusicFileName: String!
+    
+    public required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    public override init(size: CGSize) {
         super.init(size: size)
 
-        createWorld(columns, rows: rows)
-
-        createLayers()
-
-        let xRadiusCount = CGFloat(columns) * world.xFactor + 0.5
-        let yRadiusCount = CGFloat(rows + 1) / world.yFactor
+        initialize()
+    }
+    
+    func initialize() {
+        self.scaleMode = .AspectFill
         
-        radius = min(self.size.width / xRadiusCount, self.size.height / yRadiusCount)
+        createLayers()
     }
     
     func createLayers() {
-        staticBackgroundLayer.zPosition = HexaLayerType.StaticBackgroundLayer.toRaw()
-        dynamicBackgroundLayer.zPosition = HexaLayerType.DynamicBackgroundLayer.toRaw()
-        spriteLayer.zPosition = HexaLayerType.SpriteLayer.toRaw()
-        HUDLayer.zPosition = HexaLayerType.HUDLayer.toRaw()
-        debugLayer.zPosition = HexaLayerType.DebugLayer.toRaw()
+        staticBackgroundLayer.layer = HexaLayerType.StaticBackgroundLayer
+        dynamicBackgroundLayer.layer = HexaLayerType.DynamicBackgroundLayer
+        spriteLayer.layer = HexaLayerType.SpriteLayer
+        HUDLayer.layer = HexaLayerType.HUDLayer
+        debugLayer.layer = HexaLayerType.DebugLayer
         
         addChild(staticBackgroundLayer)
         addChild(dynamicBackgroundLayer)
@@ -59,7 +49,9 @@ public class HexaScene: SKScene {
         addChild(debugLayer)
     }
     
-    public func createWorld(columns: Int, rows: Int) {
-        world = Hexaworld(layout: HexaLayout.createRectLandscapeLayout(columns, rows: rows))
+    func scrollByDeltaX(deltaX: CGFloat, deltaY: CGFloat) {
+        staticBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
+        dynamicBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
+        spriteLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
     }
 }

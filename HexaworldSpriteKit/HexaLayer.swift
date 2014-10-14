@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Cyril Wei. All rights reserved.
 //
 
-import UIKit
 import SpriteKit
-import HexaworldCore
 
 enum HexaLayerType: CGFloat {
     case StaticBackgroundLayer = -100
@@ -18,22 +16,19 @@ enum HexaLayerType: CGFloat {
     case DebugLayer = 100
 }
 
-public class HexaLayer: SKNode {
-    func convertCellPoint(point: CGPoint) -> (column: Int, row: Int) {
-        let node = self.nodeAtPoint(point)
-        
-        if let realNode = node as? HexaNode {
-            return (realNode.column, realNode.row)
-        } else {
-            return (HEXA_NOT_FOUND, HEXA_NOT_FOUND)
+extension SKNode {
+    var layer: HexaLayerType {
+        get {
+            return HexaLayerType.fromRaw(self.zPosition)!
+        }
+        set {
+            self.zPosition = newValue.toRaw()
         }
     }
 }
 
-extension UITouch {
-    public func locationInLayer(layer: HexaLayer!) -> (column: Int, row: Int) {
-        let location = self.locationInNode(layer)
-        
-        return layer.convertCellPoint(location)
+public class HexaLayer: SKNode {
+    func scrollByDeltaX(deltaX: CGFloat, deltaY: CGFloat) {
+        self.position = CGPointMake(position.x + deltaX, position.y + deltaY)
     }
 }
