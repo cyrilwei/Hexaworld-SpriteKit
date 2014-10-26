@@ -19,10 +19,10 @@ enum HexaLayerType: CGFloat {
 extension SKNode {
     var layer: HexaLayerType {
         get {
-            return HexaLayerType.fromRaw(self.zPosition)!
+            return HexaLayerType(rawValue: self.zPosition)!
         }
         set {
-            self.zPosition = newValue.toRaw()
+            self.zPosition = newValue.rawValue
         }
     }
 }
