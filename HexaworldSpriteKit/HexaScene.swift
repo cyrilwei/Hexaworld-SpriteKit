@@ -16,7 +16,12 @@ public class HexaScene: SKScene {
     public let debugLayer = HexaLayer()
     
     public var backgroundMusicFileName: String!
-    
+
+    public var touchHandler: TouchHandler!
+    var defaultHandler: TouchHandler {
+        return TouchHandler(scene: self)
+    }
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -33,6 +38,8 @@ public class HexaScene: SKScene {
         self.scaleMode = .AspectFill
         
         createLayers()
+
+        useDefaultHandler()
     }
     
     func createLayers() {
@@ -49,17 +56,45 @@ public class HexaScene: SKScene {
         addChild(debugLayer)
     }
     
-    func scrollByDeltaX(deltaX: CGFloat, deltaY: CGFloat) {
+    public func scrollByDeltaX(deltaX: CGFloat, deltaY: CGFloat) {
         staticBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
         dynamicBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
         spriteLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
     }
 
-    func screenPositionForHexaPoint(point: HexaPoint) -> CGPoint {
+    public func screenPositionForHexaPoint(point: HexaPoint) -> CGPoint {
         return CGPointZero
     }
 
-    func convertCGPointToHexaPoint(point: CGPoint) -> HexaPoint {
+    public func convertCGPointToHexaPoint(point: CGPoint) -> HexaPoint {
         return HexaPoint(cube: (0, 0, 0))
+    }
+
+    public func useDefaultHandler() {
+        touchHandler = defaultHandler
+    }
+
+    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        if let realHandler = touchHandler {
+            realHandler.touchesBegan(touches, withEvent:event)
+        }
+    }
+
+    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        if let realHandler = touchHandler {
+            realHandler.touchesMoved(touches, withEvent: event)
+        }
+    }
+
+    override public func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        if let realHandler = touchHandler {
+            realHandler.touchesEnded(touches, withEvent: event)
+        }
+    }
+
+    override public func touchesCancelled(touches: NSSet, withEvent event: UIEvent) {
+        if let realHandler = touchHandler {
+            realHandler.touchesCancelled(touches, withEvent: event)
+        }
     }
 }
