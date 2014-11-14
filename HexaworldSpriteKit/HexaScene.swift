@@ -54,4 +54,12 @@ public class HexaScene: SKScene {
         dynamicBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
         spriteLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
     }
+
+    func screenPositionForHexaPoint(point: HexaPoint) -> CGPoint {
+        return CGPointZero
+    }
+
+    func convertCGPointToHexaPoint(point: CGPoint) -> HexaPoint {
+        return HexaPoint(cube: (0, 0, 0))
+    }
 }
