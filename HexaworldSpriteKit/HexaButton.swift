@@ -61,7 +61,7 @@ class HexaButton: SKSpriteNode {
         self.texture = SKTexture(imageNamed: imageName)
     }
 
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if isDisabled {
             return
         }
@@ -69,7 +69,7 @@ class HexaButton: SKSpriteNode {
         isTouched = true
     }
 
-//    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
 //        if !isTouched {
 //            return
 //        }
@@ -82,7 +82,7 @@ class HexaButton: SKSpriteNode {
 //        }
 //    }
 
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !isTouched {
             return
         }
@@ -99,7 +99,7 @@ class HexaButton: SKSpriteNode {
         isTouched = false
     }
 
-    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         isTouched = false
     }
 }

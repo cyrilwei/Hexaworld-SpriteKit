@@ -74,27 +74,19 @@ public class HexaScene: SKScene {
         touchHandler = defaultHandler
     }
 
-    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        if let realHandler = touchHandler {
-            realHandler.touchesBegan(touches, withEvent:event)
-        }
+    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        touchHandler?.touchesBegan(touches, withEvent: event)
     }
 
-    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        if let realHandler = touchHandler {
-            realHandler.touchesMoved(touches, withEvent: event)
-        }
+    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        touchHandler?.touchesMoved(touches, withEvent: event)
     }
 
-    override public func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        if let realHandler = touchHandler {
-            realHandler.touchesEnded(touches, withEvent: event)
-        }
+    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        touchHandler?.touchesEnded(touches, withEvent: event)
     }
 
-    override public func touchesCancelled(touches: NSSet, withEvent event: UIEvent) {
-        if let realHandler = touchHandler {
-            realHandler.touchesCancelled(touches, withEvent: event)
-        }
+    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        touchHandler?.touchesCancelled(touches, withEvent: event)
     }
 }
