@@ -28,7 +28,7 @@ extension SKNode {
 }
 
 public class HexaLayer: SKNode {
-    func scrollByDeltaX(deltaX: CGFloat, deltaY: CGFloat) {
-        self.position = CGPointMake(position.x + deltaX, position.y + deltaY)
+    func scrollByDeltaX(_ deltaX: CGFloat, deltaY: CGFloat) {
+        self.position = CGPoint(x: position.x + deltaX, y: position.y + deltaY)
     }
 }

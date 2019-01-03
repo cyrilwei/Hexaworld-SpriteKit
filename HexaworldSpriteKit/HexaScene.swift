@@ -35,7 +35,7 @@ public class HexaScene: SKScene {
     }
     
     func initialize() {
-        self.scaleMode = .AspectFill
+        self.scaleMode = .aspectFill
         
         createLayers()
 
@@ -56,17 +56,17 @@ public class HexaScene: SKScene {
         addChild(debugLayer)
     }
     
-    public func scrollByDeltaX(deltaX: CGFloat, deltaY: CGFloat) {
+    public func scrollByDeltaX(_ deltaX: CGFloat, deltaY: CGFloat) {
         staticBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
         dynamicBackgroundLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
         spriteLayer.scrollByDeltaX(deltaX, deltaY: deltaY)
     }
 
-    public func screenPositionForHexaPoint(point: HexaPoint) -> CGPoint {
-        return CGPointZero
+    public func screenPositionForHexaPoint(_ point: HexaPoint) -> CGPoint {
+        return .zero
     }
 
-    public func convertCGPointToHexaPoint(point: CGPoint) -> HexaPoint {
+    public func convertCGPointToHexaPoint(_ point: CGPoint) -> HexaPoint {
         return HexaPoint(cube: (0, 0, 0))
     }
 
@@ -74,19 +74,19 @@ public class HexaScene: SKScene {
         touchHandler = defaultHandler
     }
 
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        touchHandler?.touchesBegan(touches, withEvent: event)
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchHandler?.touchesBegan(touches, with: event)
     }
 
-    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        touchHandler?.touchesMoved(touches, withEvent: event)
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchHandler?.touchesMoved(touches, with: event)
     }
 
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        touchHandler?.touchesEnded(touches, withEvent: event)
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchHandler?.touchesEnded(touches, with: event)
     }
 
-    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        touchHandler?.touchesCancelled(touches, withEvent: event)
+    public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchHandler?.touchesCancelled(touches, with: event)
     }
 }

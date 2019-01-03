@@ -12,7 +12,7 @@ class HexaButton: SKSpriteNode {
     var isTouched = false
     var isDisabled = false
 
-    var clickedCallback: ((button: HexaButton) -> ())?
+    var clickedCallback: ((HexaButton) -> ())?
     var imageName: String
 
     var disabledImageName: String {
@@ -26,7 +26,7 @@ class HexaButton: SKSpriteNode {
         let texture = sprite.texture
         let size = sprite.size
 
-        super.init(texture: texture, color: SKColor.clearColor(), size: size)
+        super.init(texture: texture, color: SKColor.clear, size: size)
 
         self.name = buttonName
         initialize()
@@ -40,7 +40,7 @@ class HexaButton: SKSpriteNode {
     }
 
     func initialize() {
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
     }
 
     func disable() {
@@ -61,7 +61,7 @@ class HexaButton: SKSpriteNode {
         self.texture = SKTexture(imageNamed: imageName)
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isDisabled {
             return
         }
@@ -69,7 +69,7 @@ class HexaButton: SKSpriteNode {
         isTouched = true
     }
 
-//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
 //        if !isTouched {
 //            return
 //        }
@@ -82,7 +82,7 @@ class HexaButton: SKSpriteNode {
 //        }
 //    }
 
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !isTouched {
             return
         }
@@ -92,14 +92,14 @@ class HexaButton: SKSpriteNode {
 //
 //        if containsPoint(point) {
             if let callback = clickedCallback {
-                callback(button: self)
+                callback(self)
             }
 //        }
 
         isTouched = false
     }
 
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         isTouched = false
     }
 }
